@@ -7,11 +7,19 @@ import {Component} from '@angular/core'
     <ul>
         <li *ngFor="let course of courses"> {{course}} </li>
     </ul>
+
+    <img src="{{ _imageUrl }}"/>
+
+    <button class="btn btn-primary">btn</button>
+
+
     `
 })
 export class CoursesComponent{
 
-public _title : string ="Liste of cources :)";
+ _title : string ="Liste of cources :)";
+ _imageUrl ="https://www.gstatic.com/webp/gallery/1.jpg";
+
 courses;
 
 constructor(service: CoursesService) {
