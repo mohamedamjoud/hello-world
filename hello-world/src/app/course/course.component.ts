@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'course',
@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class CourseComponent implements OnInit {
 
   constructor() { }
-
+   @Input('isFavorite') isFavorite :  boolean = false;
   ngOnInit() {
   }
-
+  onClick(){
+    this.isFavorite = !this.isFavorite;
+    console.log(this.isFavorite);
+  }
 }
