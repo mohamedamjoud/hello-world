@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
 import { PanelComponent } from './panel/panel.component';
+import { InputFormatDirective } from './input-format.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PanelComponent } from './panel/panel.component';
     CourseComponent,
     CoursesComponent,
     PanelComponent,
+    InputFormatDirective,
   ],
   imports: [
     BrowserModule,
