@@ -21,7 +21,7 @@ export class PosteComponent implements OnInit {
   this.postService.get()
   .subscribe(
     Response=>{
-      this.posts = Response;
+      this.posts = Response as [];
     });
   }
 

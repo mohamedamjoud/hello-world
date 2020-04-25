@@ -42,12 +42,15 @@
 </div>
 <div class="checkbox">
     <label>
-        <input type="checkbox" ngModel name="isSubscribed">Subscribe to mailing list
+        <input type="checkbox" 
+        ngModel 
+        name="isSubscribed">Subscribe to mailing list
     </label>
 </div>
 <div class="from-group">
     <label  for="contactMethod">Contact Method</label>
-    <select multiple ngModel name="contactMethod" id="contactMethod" class="form-control">
+    <select multiple 
+    ngModel name="contactMethod" id="contactMethod" class="form-control">
         <option *ngFor="let contactMethod of contactMethods" [value]="contactMethod">{{contactMethod.name}}</option>
     </select>
 </div> 

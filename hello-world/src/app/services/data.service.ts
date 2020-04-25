@@ -1,27 +1,26 @@
-    import { PostService } from "./post.service"
-
     import { Injectable } from '@angular/core';
     import { HttpClient } from '@angular/common/http';
     import { catchError, map } from 'rxjs/operators';
-    import { Observable,throwError, observable } from 'rxjs';
+    import { throwError } from 'rxjs';
     import { AppError } from '../common/app-error';
     import { NotFoundError } from '../common/not-found-error';
     import { BadRequestError } from '../common/bad-request-error';
 
-    @Injectable({
-        providedIn: 'root'
-      })
+ 
 
     export class DataService {
 
         constructor(private http : HttpClient,private url : string) {
         
         }
+        DataService(){
+
+        }
     
         get (){
             return this.http.get(this.url)
             .pipe(
-                map(response => response as []),
+                map(response => response),
                 catchError(this.handleError)
             );
         }
@@ -29,7 +28,7 @@
         add(reference) {
             return this.http.post(this.url, reference)
             .pipe(
-                map(response => response['id']),
+                map(response => response),
                 catchError(this.handleError)
             );
         }

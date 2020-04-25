@@ -7,22 +7,12 @@ import {Component} from '@angular/core'
     <ul>
         <li *ngFor="let course of courses"> {{course}} </li>
     </ul>
-
-    <img src="{{ _imageUrl }}"/>
-
-     <button (click)="onSave($event)" class="btn btn-primary" [style.background]="_isActive ? 'blue' : 'white'">btn</button>
-
-     <input (keyup.enter)="enter()"/>
-     <input #email (keyup.enter)="getEmail(email.value)"/>
-     <input [(ngModel)]="_email" (keyup.enter)="printEmail()"/>
-     <br/>
+    
 {{ course.title | uppercase}} <br/>
 {{ course.students | number }} <br/>
 {{ course.rating | number: '2.1-2' }} <br/>
 {{ course.price | currency: 'AUD':true:'3.2-2' }} <br/>
-{{ course.releaseDate | date }} <br/>
-
-    `
+{{ course.releaseDate | date }} <br/>`
 })
 export class CoursesComponent{
 
@@ -39,6 +29,7 @@ course = {
     releaseDate: new Date(2016,3,1)
 }
 
+
 printEmail(){
 console.log(this._email);
 }
@@ -52,9 +43,11 @@ onSave($event){
     $event.stopPropagation();
     console.log("Button was clicked",$event.clientX);
 }
-constructor(service: CoursesService) {
+constructor(public service ?: CoursesService) {
     this.courses = service.getCourses();
 }
+CoursesComponent(){}
+
 public get title() : string {
     return this._title;
 }

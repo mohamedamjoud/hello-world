@@ -5,6 +5,7 @@ import { DataService } from './data.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PostService extends DataService {
 
 

@@ -5,7 +5,8 @@ import { Directive,HostListener, ElementRef, Input } from '@angular/core';
 })
 export class InputFormatDirective {
   @Input('appInputFormat') format;
-  constructor(private el:ElementRef) { }
+
+  constructor(private el?:ElementRef) { }
 
   @HostListener('blur') onBlur(){
     if(this.format == 'uppercase')
