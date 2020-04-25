@@ -3,7 +3,26 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
+export class UserToken {}
 
+@Injectable({
+  providedIn: 'root'
+})
+export class Permissions_ {
+
+  constructor(
+    private authService : AuthService,
+    private route : Router) {}
+
+  canActivate(user: UserToken, id: string, state: RouterStateSnapshot ): boolean {
+  
+    if (this.authService.isLoggedIn()) { return true; }
+
+    this.route.navigate(['/login'],{ queryParams : { returnUrl : state.url}});
+
+    return false;
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -23,23 +42,3 @@ export class CanActivateTeam implements CanActivate {
   }
 }
 
-export class UserToken {}
-
-@Injectable({
-  providedIn: 'root'
-})
-export class Permissions_ {
-
-  constructor(
-    private authService : AuthService,
-    private route : Router) {}
-
-  canActivate(user: UserToken, id: string, state: RouterStateSnapshot ): boolean {
-  
-    if(this.authService.isLoggedIn()) return true;
-
-    this.route.navigate(['/login'],{ queryParams : { returnUrl : state.url}});
-
-    return false;
-  }
-}
